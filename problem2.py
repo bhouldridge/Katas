@@ -3,12 +3,19 @@
 #1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-def fibonocci_generator():
+def fibonocci_generator(limit = 4*10**6):
     penultimate = 1
     ultimate = 2
     yield penultimate
     yield ultimate
+    next_number = penultimate + ultimate
+    while next_number <= limit:
+        yield next_number
+        penultimate, ultimate = ultimate, next_number
+        next_number = penultimate + ultimate
     
     
-def sum_of_even(limit):
-    pass
+def sum_of_even(iterator):
+    return sum(filter(lambda x: x % 2 == 0, iterator))
+
+print(sum_of_even(fibonocci_generator()))
