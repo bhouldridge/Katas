@@ -27,10 +27,9 @@ class TestProblem4(unittest.TestCase):
         self.assertEqual(problem4.three_digit_products(10642), (17,626))
         self.assertEqual(problem4.three_digit_products(461579), False)
         
-# =============================================================================
-#     def test_largest_palindrome_product(self):
-#         self.assertEqual(problem4.largest_palindrome_product(90009000), (910,990))
-#         
-# =============================================================================
+    def test_largest_palindrome_product(self):
+        self.assertEqual(problem4.largest_palindrome_product(998001), (913,993))
+        self.assertEqual(problem4.largest_palindrome_product(493394), (547, 902))
+        
 if __name__ == '__main__':
     unittest.main()
